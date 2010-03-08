@@ -19,6 +19,16 @@
         //Setup OpenLayers Map
         var map = new OpenLayers.Map();
 
+        //Setup WFS Style
+        var styleMap = new OpenLayers.StyleMap(
+          OpenLayers.Util.applyDefaults({
+            fillColor: "green",
+            fillOpacity: 1,
+            strokeColor: "black"
+            },
+            OpenLayers.Feature.Vector.style["default"]
+          ));
+
         //Setup OpenLayers Layer
         var base = new OpenLayers.Layer.WMS(
           "MetaCarta WMS",
@@ -40,7 +50,9 @@
               featureType: "prco303:itasca",
               srs: "EPSG:26915"
               })
-          });
+          },
+          {styleMap: styleMap},
+          {projection: new OpenLayers.Projection("EPSG:26915")});
 
         map.addLayer( base );
 
