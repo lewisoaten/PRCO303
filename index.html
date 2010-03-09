@@ -45,10 +45,10 @@
 
         var geoserver = new OpenLayers.Layer.Vector( "GeoServer WFS: Itasca Lakes", {
           strategies: [new OpenLayers.Strategy.BBOX()],
-          styleMap: styleMap,
-          projection: new OpenLayers.Projection("EPSG:26915"),
+          //styleMap: styleMap,
+          //projection: new OpenLayers.Projection("EPSG:26915"),
           protocol: new OpenLayers.Protocol.WFS({
-              version: "1.1.0",
+              //version: "1.1.0",
               url: "http://tub.ath.cx:8080/geoserver/wfs",
               featureType: "prco303:itasca",
               //featureNS: "http://tub.ath.cx/geoserver/wfs",
