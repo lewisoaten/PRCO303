@@ -45,7 +45,7 @@
 
         var geoserver = new OpenLayers.Layer.Vector( "GeoServer WFS: Itasca Lakes", {
           strategies: [new OpenLayers.Strategy.BBOX()],
-          //styleMap: styleMap,
+          styleMap: styleMap,
           //projection: new OpenLayers.Projection("EPSG:26915"),
           protocol: new OpenLayers.Protocol.WFS({
               version: "1.1.0",
