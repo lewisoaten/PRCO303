@@ -48,10 +48,11 @@
           styleMap: styleMap,
           projection: new OpenLayers.Projection("EPSG:26915"),
           protocol: new OpenLayers.Protocol.WFS({
+              version: "1.1.0",
               url: "http://tub.ath.cx:8080/geoserver/wms",
               featureType: "prco303:itasca",
               featureNS: "http://tub.ath.cx/geoserver/wms",
-              version: "1.1.0",
+              geometryName: "the_geom",
               srs: "EPSG:26915"
               })
           });
