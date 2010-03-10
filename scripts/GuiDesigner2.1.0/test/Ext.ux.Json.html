@@ -1,0 +1,170 @@
+<!--
+  * Author: Sierk Hoeksma. WebBlocks.eu
+  * Copyright 2007-2008, WebBlocks.  All rights reserved.
+  *
+  * This extension adds Gui Designer  Support to ExtJs
+  ************************************************************************************
+  *   This file is distributed on an AS IS BASIS WITHOUT ANY WARRANTY;
+  *   without even the implied warranty of MERCHANTABILITY or
+  *   FITNESS FOR A PARTICULAR PURPOSE.
+  ************************************************************************************
+
+  License: This source is licensed under the terms of the Open Source LGPL 3.0 license.
+  Commercial use is permitted to the extent that the code/component(s) do NOT become
+  part of another Open Source or Commercially licensed development library or toolkit
+  without explicit permission.Full text: http://www.opensource.org/licenses/lgpl-3.0.html
+
+  * Donations are welcomed: http://donate.webblocks.eu
+-->
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css" />
+		<script type="text/javascript" src="../extjs/adapter/ext/ext-base.js"></script>
+		<script type="text/javascript" src="../extjs/ext-all-debug.js"></script>
+
+		<script src="../lib/Test/Builder.js" type="text/javascript"></script>
+		<script src="../lib/Test/More.js" type="text/javascript"></script>
+
+		<!--The custom script to test -->
+		<script src="../js/Ext.ux.Util.js" type="text/javascript"></script>
+		<script src="../js/Ext.ux.Json.js" type="text/javascript"></script>
+
+		<!--The test function that fires when body is loaded -->
+		<script>
+			Ext.onReady(function(){
+			    var obj,a;
+				plan({ tests: 29 });
+				//diag('Decoder operations:');
+				obj = Ext.ux.JSON.encode({
+				  xtype : "form",
+				  title : "Form",
+				  html : "\"<font style=\"color:red;\">Hello, World!</font>\""
+				});
+				obj = Ext.ux.JSON.decode(obj,{evalException:false});
+				ok(obj.html=="\"<font style=\"color:red;\">Hello, World!</font>\"","Decode String");
+
+                try {
+                obj = Ext.ux.JSON.decode("function(node,e){\
+					 scope.appendConfig(scope.activeElement||scope.container,\
+					 node.attributes.config,true,null,null,\
+					 scope.require(node.attributes.require).cfg);\
+				}");
+				ok(typeof(obj)=='function','Decode Function');
+				} catch (e) {
+				    fail("Decode Function failed");
+				}
+                obj = Ext.ux.JSON.decode('"string"');
+                is(obj,'string','Decode string');
+
+				obj = Ext.ux.JSON.decode('this');
+			 	ok(typeof(obj)=='object', "Decode this");
+
+			 	obj = Ext.ux.JSON.decode('{ s : "S" + "I"}');
+			 	is(obj.s,"SI",'String concat');
+                is(obj.__JSON__s,'"S" + "I"','String concat JSON');
+
+				a = Ext.ux.JSON.decode('{ str : "string", arr : ["A1","A2"], num : .8, obj : { key1 : "value1", key2 : [1,2]} }');
+
+				is(a.str,'string', 'String parsed');
+				ok(a.arr[0] == 'A1' && a.arr[1] == 'A2', 'Array parsed');
+
+				is(a.num,.8, 'Num parsed');
+
+				ok( typeof a.obj == 'object', "Object parsed");
+				var o = a.obj;
+				is(o.key1, 'value1', "property parsed");
+
+				ok(o.key2[0] == 1 && o.key2[1] == 2, "sub-array parsed");
+
+				try {
+					a = Ext.ux.JSON.decode('{ {{ }');
+			        fail("Syntax error expected");
+				} catch (e) {
+					isaOK(e,'SyntaxError', 'SyntaxError throwed');
+				}
+
+				a = Ext.ux.JSON.decode('{\
+					scope : Ext.ux.JSON,\
+					handler : function (a,b){\
+						return a + b;\
+					},\
+					xtype : \'gmappanel\'\
+			 	}');
+
+			 	is(a.scope, Ext.ux.JSON, "scope: this decoded as object");
+			 	is(a.__JSON__scope, 'Ext.ux.JSON', "scope: this decoded as string into __JSON__scope");
+                ok(typeof a.handler == 'function', "function decoded as object");
+			 	is(a.handler(1,5),6, ".. and it works");
+
+			 	like(a.__JSON__handler, /return a \+ b/, "function decoded as string");
+
+
+  			    a = Ext.ux.JSON.merge({a:'1',c:{d:1,e:2},g:[1,2]},
+  			                          {b:'2',c:{d:2,f:3},g:[4,3]});
+			    is(a['b'],'2','Merge main merge ok');
+			    ok(a['c']['d']='2' && a['c']['e']=='2' && a['c']['f']=='3' ,'Merge object ok');
+			    is(a['g'].toString(),[1,2,4,3].toString(),'Merge array ok');
+
+
+				try {
+				    //Create a global config to be checked or otherwise exception, therefor evalException=false
+					a = Ext.ux.JSON.decode('{\
+						scope : config.DATA.field,\
+						handler : function (a,b){\
+							return a + b;\
+						},\
+						xtype : \'gmappanel\'\
+				 	}',{evalException:false});
+
+			 		is(a.__JSON__scope.value, 'config.DATA.field', "scope: undefined decoded as string into __JSON__scope #2");
+			 	} catch (e) {
+			 		fail("scope: undefined decoded as string into __JSON__scope #2");
+			 	}
+
+			 	//diag('Encoder operations:');
+			   obj = Ext.ux.JSON.decode('{\
+					scope : this,\
+					handler : function (a,b){\
+						return a + b;\
+					},\
+					xtype : \'gmappanel\'\
+			 	}');
+
+			 	var obj_string = Ext.ux.JSON.encode(obj);
+			 	var obj_copy = Ext.ux.JSON.decode(obj_string);
+			 	is(obj.scope, obj_copy.scope, "Encoded equally: scope");
+			 	is(obj.handler(1,10), obj_copy.handler(5,6), "Encoded equally: handler");
+			 	is(obj.xtype, obj_copy.xtype, "Encoded equally: xtype");
+
+				obj = Ext.ux.JSON.decode('{\
+					scope : this.undef,\
+					handler : function (a,b){\
+						return a + b;\
+					},\
+					xtype : \'gmappanel\'\
+			 	}',{evalException:false});
+
+			 	obj_string = Ext.ux.JSON.encode(obj);
+
+				var regex = /scope : this\.undef/g;
+				ok(regex.exec(obj_string),'undefined encoded as string #3');
+				ok(!regex.exec(obj_string),'encoded without dublicates');
+
+				obj = { k : 1, v : " d ", f : "" , __JSON__f : "" };
+				obj = Ext.ux.JSON.clean(obj);
+				ok(typeof(obj['f'])=='undefined','Cleaned of empty item');
+
+				try {
+				  obj = Ext.ux.JSON.decode("function(){ return 1 + 1;}",{exceptionOnly : true});
+				  ok(typeof(obj)=='function','Decode of code');
+				} catch (e) {
+				  fail("Decode of code failed" + e.message);
+				}
+			});
+		</script>
+	</head>
+
+ 	<body>
+		<H1>Ext.ux.Json test suite</H1>
+	</body>
+ </html>

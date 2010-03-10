@@ -1,0 +1,76 @@
+/* This file is created or modified with 
+ * Ext.ux.guid.plugin.GuiDesigner (v2.1.0) 
+ */
+{
+  layout : "border",
+  items : [    {
+      region : "center",
+      title : "Map"
+  },    {
+      region : "south",
+      title : "Feature Information",
+      split : false,
+      collapsible : true,
+      height : 200
+  },    {
+      region : "east",
+      width : 200,
+      items : [        {
+          layout : "accordion",
+          layoutConfig : {
+    activeOnTop : false,
+    animate : true,
+    autoWidth : true,
+    collapseFirst : true,
+    fill : true,
+    hideCollapseTool : false,
+    titleCollapse : true
+},
+          items : [            {
+              title : "Information",
+              html : "Blah, blah, blah.",
+              autoHeight : true
+          },            {
+              xtype : "form",
+              items : [                {
+                  xtype : "textfield",
+                  name : "textvalue",
+                  fieldLabel : "Username"
+              },                {
+                  xtype : "textfield",
+                  name : "textvalue",
+                  fieldLabel : "Password"
+              },                {
+                  xtype : "button",
+                  text : "Ok"
+              }],
+              autoHeight : true,
+              title : "Login"
+          },            {
+              xtype : "panel",
+              autoHeight : true,
+              items : [                {
+                  xtype : "treepanel",
+                  animate : true,
+                  autoScroll : true,
+                  containerScroll : true,
+                  root : new Ext.tree.TreeNode({text:'Tree Root',draggable : false}),
+                  dropConfig : {
+    appendOnly : true
+}
+              }],
+              title : "Layers"
+          },            {
+              xtype : "panel",
+              autoHeight : true,
+              title : "Editing"
+          }]
+      }]
+  }],
+  json : {
+  size :   {
+    width : 897,
+    height : 603
+}
+}
+}

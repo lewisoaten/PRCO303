@@ -3,15 +3,15 @@
     <title>OpenLayers Test</title>
 
     <!-- ExtJS -->
-    <script type="text/javascript" src="http://extjs.cachefly.net/builds/ext-cdn-771.js"></script>
-    <link rel="stylesheet" type="text/css" href="http://extjs.cachefly.net/ext-2.2.1/resources/css/ext-all.css" />
-    <link rel="stylesheet" type="text/css" href="http://extjs.cachefly.net/ext-2.2.1/examples/shared/examples.css" />
+    <link rel="stylesheet" type="text/css" href="./scripts/ext-3.1.1/resources/css/ext-all.css" />
+    <script type="text/javascript" src="./scripts/ext-3.1.1/adapter/ext/ext-base.js"></script>
+    <script type="text/javascript" src="./scripts/ext-3.1.1/ext-all-debug.js"></script>
 
     <!-- OpenLayers -->
     <script type="text/javascript" src="http://www.openlayers.org/api/OpenLayers.js"></script>
 
     <!-- GeoExt -->
-    <script type="text/javascript" src="./scripts/GeoExt.js"></script>
+    <script type="text/javascript" src="./scripts/GeoExt-0.6.js"></script>
     <script type="text/javascript">
       OpenLayers.ProxyHost = "/cgi-bin/proxy.cgi?url=";
       Ext.onReady(function() {
@@ -59,61 +59,95 @@
 
         map.addLayer( base );
 
-        //Setup GeoExt Stores
-        //var store = new GeoExt.data.FeatureStore({
-          //layer: geoserver,
-        //  fields: [
-         //   {name: "prco303:lake_name", type: "string"}
-         //   ],
-         // proxy: new GeoExt.data.ProtocolProxy({
-         //   
-         //   }),
-        //  autoLoad: true
-        //  });
-
-        //Setup GeoExt Panels
-      //  var gridPanel = new Ext.grid.GridPanel({
-       //   title: "Feature Table - Itasca Lakes",
-       //   region: "south",
-       //   viewConfig: {forceFit: true},
-         // store: store,
-       //   cm: new Ext.grid.ColumnModel({
-       //     defaults: { sortable: true },
-        //    columns: [ {header: "Lake Name", dataIndex: "prco303lake_name"} ]
-        //    })
-        //  });
-
         var mapPanel = new GeoExt.MapPanel({
-          title: "GeoExt Test",
+          title: "Map",
           region: "center",
-          width: 600,
           map: map,
-          layers: [ geoserver, geoserverWMS ],
-          extent: new OpenLayers.Bounds(-94.428, 47.018, -93.06, 47.889)
-          });
+          extent: new OpenLayers.Bounds(-94.428, 47.018, -93.06, 47.889),
+          layers: [ geoserver, geoserverWMS ]
+        });
 
-        var layerList = new GeoExt.tree.LayerContainer({
+        new Ext.Viewport({
+            title: "Collaborative Geospatial Environment",
+            renderTo: "map",
+            layout:"fit",
+          items : [{
+		  layout : "border",
+		  items : [ mapPanel,    {
+		      region : "south",
+		      title : "Feature Information",
+		      split : false,
+		      collapsible : true,
+		      height : 200
+		  },    {
+		      region : "east",
+		      width : 240,
+		      items : [        {
+			  layout : "accordion",
+			  layoutConfig : {
+		    activeOnTop : false,
+		    animate : true,
+		    autoWidth : true,
+		    collapseFirst : true,
+		    fill : true,
+		    hideCollapseTool : false,
+		    titleCollapse : true
+		},
+			  items : [            {
+			      title : "Information",
+			      html : "<p>This is the interface for the Collaborative Geospatial Environment.</p>",
+			      autoHeight : true
+			  },            {
+			      xtype : "form",
+			      items : [                {
+				  xtype : "textfield",
+				  name : "textvalue",
+				  fieldLabel : "Username"
+			      },                {
+				  xtype : "textfield",
+				  name : "textvalue",
+				  fieldLabel : "Password"
+			      },                {
+				  xtype : "button",
+				  text : "Ok"
+			      }],
+			      autoHeight : true,
+			      title : "Login"
+			  },            {
+			      xtype : "panel",
+			      autoHeight : true,
+			      items : [                {
+				  xtype : "treepanel",
+				  animate : true,
+				  autoScroll : true,
+				  containerScroll : true,
+				  root : new GeoExt.tree.LayerContainer({
           text: "All Layers",
           layerStore: mapPanel.layers,
           leaf: false,
           expanded: true
-          });
-
-        var layerTree = new Ext.tree.TreePanel({
-          title: "Map Layers",
-          region: "east",
-          width: 320,
-          root: layerList
-          });
-
-        var mainPanel = new Ext.Panel({
-          renderTo: "map",
-          layout: "border",
-          height: 400,
-          width: 920,
-          items: [ mapPanel, layerTree]
-          });
-      });  
+          }),
+				  dropConfig : {
+		    appendOnly : true
+		}
+			      }],
+			      title : "Layers"
+			  },            {
+			      xtype : "panel",
+			      autoHeight : true,
+			      title : "Editing"
+			  }]
+		      }]
+		  }],
+		  json : {
+		  size :   {
+		    width : 897,
+		    height : 603
+		}
+		}
+		}]
+        }).show();
+      });
     </script>
   </head>
   <body>

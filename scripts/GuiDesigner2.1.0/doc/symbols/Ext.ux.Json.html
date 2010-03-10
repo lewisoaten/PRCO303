@@ -1,0 +1,1329 @@
+
+<div class="body-wrap">
+    <div class="top-tools">
+        <a class="inner-link" href="#Ext.ux.Json-props"><img src="resources/s.gif" class="item-icon icon-prop">Properties</a>
+        <a class="inner-link" href="#Ext.ux.Json-methods"><img src="resources/s.gif" class="item-icon icon-method">Methods</a>
+        <a class="inner-link" href="#Ext.ux.Json-events"><img src="resources/s.gif" class="item-icon icon-event">Events</a>
+        <a class="inner-link" href="#Ext.ux.Json-configs"><img src="resources/s.gif" class="item-icon icon-config">Config Options</a>
+        <a class="bookmark" href="NEED_TO_CREATE_DIRECT_LINK_HREF"><img src="resources/s.gif" class="item-icon icon-fav">Direct Link</a>
+    </div>
+    
+    <div class="inheritance res-block"><pre class="res-block-inner">
+<a ext:cls="Ext.ux.Util" ext_member="" href="symbols/Ext.ux.Util.html">Ext.ux.Util</a>
+<img src="resources/elbow-end.gif"/>Ext.ux.Json
+</pre></div>
+    <h1>Class Ext.ux.Json</h1>     
+    <table cellspacing="0">
+        <tr><td class="label">Package:</td><td class="hd-info">Ext.ux</td></tr>
+        <tr><td class="label">Defined In:</td><td class="hd-info"><a ext:cls="Ext.ux.Json" ext:member="" href="src/GuiBuilder_js_Ext.ux.Json.js.html">Ext.ux.Json.js</a></td></tr>
+        <tr><td class="label">Class:</td><td class="hd-info">Json</td></tr>
+<!--        <tr><td class="label">Subclasses:</td><td class="hd-info">this could be figured out</td></tr> -->
+        <tr><td class="label">Extends:</td><td class="hd-info"><a ext:cls="Ext.ux.Json" ext:member="" href="symbols/Ext.ux.Util.html">Ext.ux.Util</a></td></tr>        
+    </table>
+    
+    <div class="description">
+        A class used by JsonPanel and JsonWindow to load a jsonFile 
+    </div>
+    
+    <div class="hr"></div>
+    <a id="Ext.ux.Json-configs"></a>
+    <h2>Config Options</h2>
+    
+    <table cellspacing="0" class="member-table">
+        <tr>
+            <th class="sig-header" colspan="2">Config Options</th>
+            <th class="msource-header">Defined By</th>
+        </tr>
+        
+             
+        <tr class="config-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-listeners"></a>
+                <b>indentString</b> : String
+                <div class="mdesc">
+                    <div class="short">The string used to indent</div>
+                    <div class="long">
+                        The string used to indent
+                    </div>
+                </div>
+            </td>
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#indentString" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>
+        </tr>
+             
+        <tr class="config-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-listeners"></a>
+                <b>readable</b> : Boolean
+                <div class="mdesc">
+                    <div class="short">Should the result of a encode be readable</div>
+                    <div class="long">
+                        Should the result of a encode be readable
+                    </div>
+                </div>
+            </td>
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#readable" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>
+        </tr>
+             
+        <tr class="config-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-listeners"></a>
+                <b>licenseText</b> : String
+                <div class="mdesc">
+                    <div class="short">The custom licenseText that should be added to each JSON File Created</div>
+                    <div class="long">
+                        The custom licenseText that should be added to each JSON File Created
+                    </div>
+                </div>
+            </td>
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#licenseText" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>
+        </tr>
+             
+        <tr class="config-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-listeners"></a>
+                <b>jsonId</b> : String
+                <div class="mdesc">
+                    <div class="short">The internal tag added to an objectkey used to store original code of a objectvalue,when null the original code is not stored and encode will not be able to recreatejavascript code.</div>
+                    <div class="long">
+                        The internal tag added to an objectkey used to store original code of a objectvalue,when null the original code is not stored and encode will not be able to recreatejavascript code.
+                    </div>
+                </div>
+            </td>
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#jsonId" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>
+        </tr>
+             
+        <tr class="config-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-listeners"></a>
+                <b>scope</b> : Object
+                <div class="mdesc">
+                    <div class="short">Scope is used as binding varaible for <b>this</b> within the json</div>
+                    <div class="long">
+                        Scope is used as binding varaible for <b>this</b> within the json
+                    </div>
+                </div>
+            </td>
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#scope" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>
+        </tr>
+             
+        <tr class="config-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-listeners"></a>
+                <b>evalException</b> : Boolean
+                <div class="mdesc">
+                    <div class="short">Should an eval Exception been thrown causing parsing to stopor should it be converted into string</div>
+                    <div class="long">
+                        Should an eval Exception been thrown causing parsing to stopor should it be converted into string
+                    </div>
+                </div>
+            </td>
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#evalException" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>
+        </tr>
+             
+        <tr class="config-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-listeners"></a>
+                <b>fullEncode</b> : Boolean
+                <div class="mdesc">
+                    <div class="short">Flag indicating that whe should do a full encode, not only items keys recusivly</div>
+                    <div class="long">
+                        Flag indicating that whe should do a full encode, not only items keys recusivly
+                    </div>
+                </div>
+            </td>
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#fullEncode" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>
+        </tr>
+        
+        
+    </table>
+    <a id="Ext.ux.Json-props"></a>      
+    
+    <h2>Public Properties</h2> 
+            
+    <table cellspacing="0" class="member-table">            
+        <tr>
+            <th class="sig-header" colspan="2">Property</th>
+            <th class="msource-header">Defined By</th>
+        </tr>
+        
+        
+                    
+        <tr class="property-row inherited">
+            <td class="micon">
+                <a class="exi" href="#expand">&nbsp;</a>
+            </td>
+            <td class="sig">
+                <a id="Ext.Component-disabled"></a>
+                <b>useHasOwn</b> : Boolean            
+                <div class="mdesc">   
+                    Indicator if this version support hasOwnProperty                        
+                </div>
+            </td>
+            <td class="msource">                
+                
+                <a class="" ext:cls="Ext.ux.Util" ext:member="Ext.ux.Util#useHasOwn" href="symbols/Ext.ux.Util.html">Util</a>
+            </td>
+        </tr>
+        
+        
+        
+        <!-- TODO: implement this alt row.  also notice non-linked "Defined by" when property is a part of this class.     
+        <tr class="property-row alt">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.Component-hidden"></a>
+                <b>hidden</b> : Boolean            
+                <div class="mdesc">                            
+                    True if this component is hidden. Read-only.                       
+                </div>
+            </td>
+            <td class="msource">Component</td>
+        </tr>
+        -->
+    </table>
+                   
+    <a id="Ext.ux.Json-methods"></a>
+    <h2>Public Methods</h2>    
+    
+    <table cellspacing="0" class="member-table">
+        <tr>
+            <th class="sig-header" colspan="2">Method</th>            
+            <th class="msource-header">Defined By</th>
+        </tr>
+        
+                
+        <tr class="method-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>initialize</b>(&nbsp;<code></code>&nbsp;) : void                                
+                <div class="mdesc">
+                    <div class="short">Called from within the constructor allowing to initialize the parser</div>
+                    <div class="long">
+                        Called from within the constructor allowing to initialize the parser    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>void<div class="sub-desc"></div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#initialize" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>getScope</b>(&nbsp;<code></code>&nbsp;) : Object                                
+                <div class="mdesc">
+                    <div class="short">Function returning the scope to beused for the json</div>
+                    <div class="long">
+                        Function returning the scope to beused for the json    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>Object<div class="sub-desc">the object which should be used as scope when parsing</div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#getScope" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>isEmpty</b>(&nbsp;<code>Object\Array obj</code>&nbsp;) : Boolean                                
+                <div class="mdesc">
+                    <div class="short">Check if a object is empty, ignoring jsonId keys</div>
+                    <div class="long">
+                        Check if a object is empty, ignoring jsonId keys    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>obj</code> : Object\Array
+                                    <div class="sub-desc">&nbsp;The json object to be checked</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>Boolean<div class="sub-desc">true when object does not contain any data</div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#isEmpty" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>load</b>(&nbsp;<code>String/Object url, function/Container target</code>&nbsp;) : Object                                
+                <div class="mdesc">
+                    <div class="short">Load a json object directly from url. Target can be a callback function orvisual component. When target is not set load will be come a synchrone call</div>
+                    <div class="long">
+                        Load a json object directly from url. Target can be a callback function orvisual component. When target is not set load will be come a synchrone call    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>url</code> : String/Object
+                                    <div class="sub-desc">&nbsp;The url information to be used for loading</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>target</code> : function/Container
+                                    <div class="sub-desc">&nbsp;A callback function or container to render json\</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>Object<div class="sub-desc">null when target is set otherwise the loaded json.</div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#load" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>set</b>(&nbsp;<code>Object items, Element element, Object options</code>&nbsp;) : Boolean                                
+                <div class="mdesc">
+                    <div class="short">Function called to set the values of items to element using element functionsSpecial keys within the object are required_css and required_jsthese keys can contain a comma seperated list of javascript or stylesheetsto load. Style sheets are loaded asynchone but javascript are loaded synchrone.</div>
+                    <div class="long">
+                        Function called to set the values of items to element using element functionsSpecial keys within the object are required_css and required_jsthese keys can contain a comma seperated list of javascript or stylesheetsto load. Style sheets are loaded asynchone but javascript are loaded synchrone.    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>items</code> : Object
+                                    <div class="sub-desc">&nbsp;The config object with items that should be set</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>element</code> : Element
+                                    <div class="sub-desc">&nbsp;The element to which to set the values</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>options</code> : Object
+                                    <div class="sub-desc">&nbsp;Options that can be set are scope,scopeOnly</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>Boolean<div class="sub-desc">indicator if all changes where set</div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#set" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>clean</b>(&nbsp;<code>Object items</code>&nbsp;) : Object                                
+                <div class="mdesc">
+                    <div class="short">Clean the null elements from items object</div>
+                    <div class="long">
+                        Clean the null elements from items object    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>items</code> : Object
+                                    <div class="sub-desc">&nbsp;The items object to be cleaned</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>Object<div class="sub-desc">The cleaned items object</div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#clean" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>editable</b>(&nbsp;<code>Object/String json</code>&nbsp;) : Object                                
+                <div class="mdesc">
+                    <div class="short">Convert a Json to a editable Json by adding an jsonId when set to each object</div>
+                    <div class="long">
+                        Convert a Json to a editable Json by adding an jsonId when set to each object    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>json</code> : Object/String
+                                    <div class="sub-desc">&nbsp;The json as text or object to add an id to</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>Object<div class="sub-desc">The decoded object with id's added</div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#editable" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>apply</b>(&nbsp;<code>Object/String json, Element el, Boolean clean</code>&nbsp;) : Object                                
+                <div class="mdesc">
+                    <div class="short">Apply the Json to given visual element</div>
+                    <div class="long">
+                        Apply the Json to given visual element    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>json</code> : Object/String
+                                    <div class="sub-desc">&nbsp;The json to apply</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>el</code> : Element
+                                    <div class="sub-desc">&nbsp;The element to apply the json to</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>clean</code> : Boolean
+                                    <div class="sub-desc">&nbsp;When false object will not be cleaned, defaults true</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>Object<div class="sub-desc">The elements applied</div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#apply" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>encode</b>(&nbsp;<code>Object o, Int indent,  keepJsonId,  noLicense</code>&nbsp;) : String                                
+                <div class="mdesc">
+                    <div class="short">Customer encode decode and recode, enabling reading and writing of JSON files with javascript code</div>
+                    <div class="long">
+                        Customer encode decode and recode, enabling reading and writing of JSON files with javascript code    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>o</code> : Object
+                                    <div class="sub-desc">&nbsp;The object to encode</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>indent</code> : Int
+                                    <div class="sub-desc">&nbsp;The indent to uses (defaults 0)</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>keepJsonId</code> : 
+                                    <div class="sub-desc">&nbsp;</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>noLicense</code> : 
+                                    <div class="sub-desc">&nbsp;</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>String<div class="sub-desc">The object encode as string</div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#encode" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>getObjectRawValue</b>(&nbsp;<code>Object object, String key</code>&nbsp;) : value                                
+                <div class="mdesc">
+                    <div class="short">Function used to read a raw value form a given object</div>
+                    <div class="long">
+                        Function used to read a raw value form a given object    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>object</code> : Object
+                                    <div class="sub-desc">&nbsp;The object used</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>key</code> : String
+                                    <div class="sub-desc">&nbsp;The key to use</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>value<div class="sub-desc">The value of the raw key</div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#getObjectRawValue" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>setJsonValue</b>(&nbsp;<code>Object cfg, String key, Mixed value</code>&nbsp;) : Object                                
+                <div class="mdesc">
+                    <div class="short">Set a key with a value within the json container of configwithout changing the layout of the json</div>
+                    <div class="long">
+                        Set a key with a value within the json container of configwithout changing the layout of the json    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>cfg</code> : Object
+                                    <div class="sub-desc">&nbsp;The config object</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>key</code> : String
+                                    <div class="sub-desc">&nbsp;The to be set</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>value</code> : Mixed
+                                    <div class="sub-desc">&nbsp;The value to be set</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>Object<div class="sub-desc">The config object</div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#setJsonValue" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>setObjectValue</b>(&nbsp;<code>Object object, String key, Object value, String rawValue, Object scope</code>&nbsp;) : void                                
+                <div class="mdesc">
+                    <div class="short">Function used to by decode to assign a value to a key within a object created during decodeOverwriting this functions allows to write you to rewrite output of value depending on situtation</div>
+                    <div class="long">
+                        Function used to by decode to assign a value to a key within a object created during decodeOverwriting this functions allows to write you to rewrite output of value depending on situtation    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>object</code> : Object
+                                    <div class="sub-desc">&nbsp;The object array used to assing</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>key</code> : String
+                                    <div class="sub-desc">&nbsp;The key of the element within then object</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>value</code> : Object
+                                    <div class="sub-desc">&nbsp;The value of the element within the object</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>rawValue</code> : String
+                                    <div class="sub-desc">&nbsp;the rawValue to be used for the object (defaults null)</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>scope</code> : Object
+                                    <div class="sub-desc">&nbsp;The scope to be used (defaults getScope())</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>void<div class="sub-desc"></div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#setObjectValue" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>codeEval</b>(&nbsp;<code>String text, Object options</code>&nbsp;) : Object\Function                                
+                <div class="mdesc">
+                    <div class="short">Code Evaluation function forcing that scope is set during eval</div>
+                    <div class="long">
+                        Code Evaluation function forcing that scope is set during eval    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>text</code> : String
+                                    <div class="sub-desc">&nbsp;The string to be evaluated</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>options</code> : Object
+                                    <div class="sub-desc">&nbsp;A object that can overrule config items,        evalException or scope</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>Object\Function<div class="sub-desc">The evaluated object</div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#codeEval" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>decode</b>(&nbsp;<code>String json, Object options</code>&nbsp;) : Object                                
+                <div class="mdesc">
+                    <div class="short">Decode function for parsing json json into objectsThe parsing contains four stages.First stage the json is parsed and code is transformed into strings and evaluatedSecond stage All empty objects are removedThird stage the json key (if exists) is evaluated  to check if stylesheets or javascipt or scipe objects should be loadedFourth stage the code objects are checked if there code should be stored __json__[key]</div>
+                    <div class="long">
+                        Decode function for parsing json json into objectsThe parsing contains four stages.First stage the json is parsed and code is transformed into strings and evaluatedSecond stage All empty objects are removedThird stage the json key (if exists) is evaluated  to check if stylesheets or javascipt or scipe objects should be loadedFourth stage the code objects are checked if there code should be stored __json__[key]    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>json</code> : String
+                                    <div class="sub-desc">&nbsp;The string to decode</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>options</code> : Object
+                                    <div class="sub-desc">&nbsp;A object that can overrule config items,       fullDecode, evalException or scope</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>Object<div class="sub-desc">The decoded object</div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#decode" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>clone</b>(&nbsp;<code>Object items</code>&nbsp;) : Object                                
+                <div class="mdesc">
+                    <div class="short">Function used to clone a objectIMPORTANT: works only when items are build with jsonid set</div>
+                    <div class="long">
+                        Function used to clone a objectIMPORTANT: works only when items are build with jsonid set    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>items</code> : Object
+                                    <div class="sub-desc">&nbsp;The object to be cloned</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>Object<div class="sub-desc">The cloned object</div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#clone" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable inherited">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>onError</b>(&nbsp;<code>String type, Object exception</code>&nbsp;) : Boolean                                
+                <div class="mdesc">
+                    <div class="short">Basic error handling</div>
+                    <div class="long">
+                        Basic error handling    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>type</code> : String
+                                    <div class="sub-desc">&nbsp;The type of error</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>exception</code> : Object
+                                    <div class="sub-desc">&nbsp;The exception object</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>Boolean<div class="sub-desc">When false the error event is canceled.</div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                
+                <a class="" ext:cls="Ext.ux.Util" ext:member="Ext.ux.Util#onError" href="symbols/Ext.ux.Util.html">Util</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable inherited">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>dateStr</b>(&nbsp;<code>Date curdate</code>&nbsp;) : void                                
+                <div class="mdesc">
+                    <div class="short">Retrun a time string in hh:mm:ss</div>
+                    <div class="long">
+                        Retrun a time string in hh:mm:ss    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>curdate</code> : Date
+                                    <div class="sub-desc">&nbsp;The date to used (default Date())</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>void<div class="sub-desc">Date string in hh:mm:ss format</div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                
+                <a class="" ext:cls="Ext.ux.Util" ext:member="Ext.ux.Util#dateStr" href="symbols/Ext.ux.Util.html">Util</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable inherited">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>nocacheUrl</b>(&nbsp;<code>String url, boolean nocache</code>&nbsp;) : void                                
+                <div class="mdesc">
+                    <div class="short">Convert a url into a nocache url by adding a date if needed</div>
+                    <div class="long">
+                        Convert a url into a nocache url by adding a date if needed    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>url</code> : String
+                                    <div class="sub-desc">&nbsp;The url to use</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>nocache</code> : boolean
+                                    <div class="sub-desc">&nbsp;The nocache variable (default this.nocache)</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>void<div class="sub-desc"></div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                
+                <a class="" ext:cls="Ext.ux.Util" ext:member="Ext.ux.Util#nocacheUrl" href="symbols/Ext.ux.Util.html">Util</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable inherited">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>syncContent</b>(&nbsp;<code>String url, Boolean nocache, Boolean response, Object param</code>&nbsp;) : Boolean/String/XMLObject                                
+                <div class="mdesc">
+                    <div class="short">A Synchronized Content loader for data from url</div>
+                    <div class="long">
+                        A Synchronized Content loader for data from url    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>url</code> : String
+                                    <div class="sub-desc">&nbsp;The url to load synchronized</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>nocache</code> : Boolean
+                                    <div class="sub-desc">&nbsp;Should caching of file be disabled</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>response</code> : Boolean
+                                    <div class="sub-desc">&nbsp;Should response be returned instead of responseText</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>param</code> : Object
+                                    <div class="sub-desc">&nbsp;The params to be send</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>Boolean/String/XMLObject<div class="sub-desc">When there was a error False otherwise response base on responseXML flag</div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                
+                <a class="" ext:cls="Ext.ux.Util" ext:member="Ext.ux.Util#syncContent" href="symbols/Ext.ux.Util.html">Util</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable inherited">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>scriptLoader</b>(&nbsp;<code>String url, Boolean nocache</code>&nbsp;) : Boolean                                
+                <div class="mdesc">
+                    <div class="short">Function used to load a JavaScript into a document.head elementthe id of the script item is the name of the file.</div>
+                    <div class="long">
+                        Function used to load a JavaScript into a document.head elementthe id of the script item is the name of the file.    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>url</code> : String
+                                    <div class="sub-desc">&nbsp;The url to load javascript from</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>nocache</code> : Boolean
+                                    <div class="sub-desc">&nbsp;Should caching of javascript files be disabled</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>Boolean<div class="sub-desc">Indicator if load went corretly true/false</div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                
+                <a class="" ext:cls="Ext.ux.Util" ext:member="Ext.ux.Util#scriptLoader" href="symbols/Ext.ux.Util.html">Util</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable inherited">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>getUrlAction</b>(&nbsp;<code>String name, String defaultValue, String url</code>&nbsp;) : String                                
+                <div class="mdesc">
+                    <div class="short">Get the value of a url action</div>
+                    <div class="long">
+                        Get the value of a url action    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>name</code> : String
+                                    <div class="sub-desc">&nbsp;The name of the action</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>defaultValue</code> : String
+                                    <div class="sub-desc">&nbsp;The default value used when not found</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>url</code> : String
+                                    <div class="sub-desc">&nbsp;The url to use defaults to window url</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>String<div class="sub-desc">The value found for action or default</div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                
+                <a class="" ext:cls="Ext.ux.Util" ext:member="Ext.ux.Util#getUrlAction" href="symbols/Ext.ux.Util.html">Util</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable inherited">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>parseUrl</b>(&nbsp;<code>String str, Object options</code>&nbsp;) : void                                
+                <div class="mdesc">
+                    <div class="short">Parse a url into objectcontaining element: "source","protocol","authority","userInfo","user","password","host","port","relative","path","directory","file","name","ext","query","anchor"</div>
+                    <div class="long">
+                        Parse a url into objectcontaining element: "source","protocol","authority","userInfo","user","password","host","port","relative","path","directory","file","name","ext","query","anchor"    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>str</code> : String
+                                    <div class="sub-desc">&nbsp;The url to parse</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>options</code> : Object
+                                    <div class="sub-desc">&nbsp;A object with options to be used during parse</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>void<div class="sub-desc"></div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                
+                <a class="" ext:cls="Ext.ux.Util" ext:member="Ext.ux.Util#parseUrl" href="symbols/Ext.ux.Util.html">Util</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable inherited">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>loadUrl</b>(&nbsp;<code>String url, String type, Object options</code>&nbsp;) : void                                
+                <div class="mdesc">
+                    <div class="short">Load a url, stylesheet or javascript by adding it to the header</div>
+                    <div class="long">
+                        Load a url, stylesheet or javascript by adding it to the header    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>url</code> : String
+                                    <div class="sub-desc">&nbsp;The url to be added</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>type</code> : String
+                                    <div class="sub-desc">&nbsp;The load action to perform (default js)</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>options</code> : Object
+                                    <div class="sub-desc">&nbsp;options[reload] Should the file be reload if allready loaded</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>void<div class="sub-desc"></div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                
+                <a class="" ext:cls="Ext.ux.Util" ext:member="Ext.ux.Util#loadUrl" href="symbols/Ext.ux.Util.html">Util</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable inherited">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>merge</b>(&nbsp;<code>Object\Array json1, Object\Array json2</code>&nbsp;) : Object\Array                                
+                <div class="mdesc">
+                    <div class="short">Merge two json files into one, incase same items existsthen second json is leading</div>
+                    <div class="long">
+                        Merge two json files into one, incase same items existsthen second json is leading    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>json1</code> : Object\Array
+                                    <div class="sub-desc">&nbsp;The first json file</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>json2</code> : Object\Array
+                                    <div class="sub-desc">&nbsp;The second json file</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>Object\Array<div class="sub-desc">The merged json</div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                
+                <a class="" ext:cls="Ext.ux.Util" ext:member="Ext.ux.Util#merge" href="symbols/Ext.ux.Util.html">Util</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable inherited">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>formObject</b>(&nbsp;<code>Form form</code>&nbsp;) : Object                                
+                <div class="mdesc">
+                    <div class="short">Transfer the form content into a object</div>
+                    <div class="long">
+                        Transfer the form content into a object    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>form</code> : Form
+                                    <div class="sub-desc">&nbsp;The form to be transformed into a object</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>Object<div class="sub-desc">With the data of form</div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                
+                <a class="" ext:cls="Ext.ux.Util" ext:member="Ext.ux.Util#formObject" href="symbols/Ext.ux.Util.html">Util</a>
+            </td>
+        </tr>
+                
+        <tr class="method-row expandable inherited">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-addEvents"></a>                
+                <b>require</b>(&nbsp;<code>Mixed packages, Mixed options</code>&nbsp;) : Object                                
+                <div class="mdesc">
+                    <div class="short">Function require is used to checks if the required files are loadedwhen not the files are loaded</div>
+                    <div class="long">
+                        Function require is used to checks if the required files are loadedwhen not the files are loaded    
+                        <div class="mdetail-params">                            
+                            <strong>Parameters:</strong>                            
+                            <ul>
+                            
+                                <li>
+                                    <code>packages</code> : Mixed
+                                    <div class="sub-desc">&nbsp;An array or ; seperated string with packages to load</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>options</code> : Mixed
+                                    <div class="sub-desc">&nbsp;An object with options to used, when string then basedir is assumedoptions[basedir] The default directory to use for all filesoptions[cssdir] The directory to be used for stylesheetsoptions[async] When set to true required will return directlyoptions[callback] Callback function after all required files are loadedoptions[reload] When reload is set packages are reloadedoptions[nocache] When set the object caching is turned offoptions[reload] When true stylesheet/javacode is swapped</div>                                   
+                                </li>
+                            
+                            </ul>
+                                                        
+                            <strong>Returns:</strong>
+                            <ul>
+                                <li>Object<div class="sub-desc">a object with keys js and css contain an array with full path of items</div></li>
+                            </ul>                    
+                        </div>
+                    </div>                    
+                </div>
+            </td>
+            <td class="msource">
+                
+                <a class="" ext:cls="Ext.ux.Util" ext:member="Ext.ux.Util#require" href="symbols/Ext.ux.Util.html">Util</a>
+            </td>
+        </tr>
+                                                          
+    </table>
+    
+    <a id="Ext.ux.Json-events"></a>
+    <h2>Public Events</h2>
+    
+    <table cellspacing="0" class="member-table">        
+        <tr>
+            <th class="sig-header" colspan="2">Event</th>   
+            <th class="msource-header">Defined By</th>
+        </tr>
+        
+        <tr class="event-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-beforeload"></a>
+                <b>beforeapply</b> : (&nbsp;<code>Object element, Object json</code>&nbsp;) 
+            
+                <div class="mdesc">   
+                    <div class="short">Fires before a json is been applied to a visual component</div>
+                    <div class="long">
+                        Fires before a json is been applied to a visual component  
+                        <div class="mdetail-params">
+                            <strong style="font-weight:normal;">Listeners will be called with the following arguments:</strong>
+                            <ul>
+                            
+                                <li>
+                                    <code>element</code> : Object
+                                    <div class="sub-desc">The visual component</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>json</code> : Object
+                                    <div class="sub-desc">The json used</div>                                   
+                                </li>
+                                                                                        
+                            </ul>   
+                        </div>
+                    </div>
+                </div>
+            </td>   
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#beforeapply" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>                                 
+        </tr>
+        
+        <tr class="event-row expandable">
+            <td class="micon"><a class="exi" href="#expand">&nbsp;</a></td>
+            <td class="sig">
+                <a id="Ext.data.DataProxy-beforeload"></a>
+                <b>afterapply</b> : (&nbsp;<code>Object element, Object json</code>&nbsp;) 
+            
+                <div class="mdesc">   
+                    <div class="short">Fires after a json has been applied to a visual component</div>
+                    <div class="long">
+                        Fires after a json has been applied to a visual component  
+                        <div class="mdetail-params">
+                            <strong style="font-weight:normal;">Listeners will be called with the following arguments:</strong>
+                            <ul>
+                            
+                                <li>
+                                    <code>element</code> : Object
+                                    <div class="sub-desc">The visual component</div>                                   
+                                </li>
+                            
+                                <li>
+                                    <code>json</code> : Object
+                                    <div class="sub-desc">The json used</div>                                   
+                                </li>
+                                                                                        
+                            </ul>   
+                        </div>
+                    </div>
+                </div>
+            </td>   
+            <td class="msource">
+                Json
+                <a class="x-hidden" ext:cls="Ext.ux.Json" ext:member="Ext.ux.Json#afterapply" href="symbols/Ext.ux.Json.html">Json</a>
+            </td>                                 
+        </tr>
+                    
+    </table>            
+</div>

@@ -1,0 +1,28 @@
+[{
+  text : "Third party",
+  cls : "folder",
+  childeren : [{
+      text : "ColorField",
+      qtip : "A color field",
+      cls : "file",
+      require : ["Ext.ux.ColorField;Ext.ux.ColorField.css",{basedir:"3rdparty/colorfield/js",cssdir:"3rdparty/colorfield/css"}],
+      config : {
+        xtype : "colorfield",
+        fieldLabel : "Color"
+      }
+  },
+  {
+      text : "RecordGrid",
+      qtip : "A record grid",
+      require : ["Ext.ux.grid.Search;Ext.ux.IconMenu;Ext.ux.grid.RowActions;Ext.ux.grid.RecordForm;" +
+                 "Ext.ux.form.DateTime;icons.css;Ext.ux.grid.RowActions.css;recordform.css",
+                 {basedir:"3rdparty/recordform/js",cssdir:"3rdparty/recordform/css"},
+                 "Ext.ux.RecordFormGrid",
+                 {basedir:"3rdparty/webblocks",cssdir:"3rdparty/webblocks"}
+                ],
+      config : {
+        xtype : "recordformgrid"
+      },
+      cls : "file"
+    }]
+}]
