@@ -134,8 +134,8 @@ var DeleteFeature = OpenLayers.Class(OpenLayers.Control, {
           protocol: new OpenLayers.Protocol.WFS({
             version: "1.1.0",
             url: "http://tub.ath.cx:8080/geoserver/wfs",
-            featureType: "prco303:itasca",
-            //featureNS: "http://tub.ath.cx/geoserver/wfs",
+            featureType: "itasca",
+            featureNS: "http://tub.ath.cx",
             geometryName: "the_geom",
             srs: "EPSG:26915"
             })
@@ -155,7 +155,7 @@ var DeleteFeature = OpenLayers.Class(OpenLayers.Control, {
             srsName: "EPSG:26915",
             url: "http://tub.ath.cx:8080/geoserver/wfs",
             featureNS :  "http://tub.ath.cx",
-            featureType: "prco303:shared",
+            featureType: "shared",
             geometryName: "the_geom",
             schema: "http://192.168.72.7:8080/geoserver/wfs/DescribeFeatureType?version=1.1.0&typeName=prco303:shared"
             })
