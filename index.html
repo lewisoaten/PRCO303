@@ -9,11 +9,95 @@
 
     <!-- OpenLayers -->
     <script type="text/javascript" src="http://www.openlayers.org/api/OpenLayers.js"></script>
+<style> 
+        .customEditingToolbar {
+            float: right;
+            right: 0px;
+            height: 30px; 
+            width: 200px;
+        }
+        .customEditingToolbar div {
+            float: right;
+            margin: 5px;
+            width: 24px;
+            height: 24px;
+        }
+        .olControlNavigationItemActive { 
+            background-image: url("http://openlayers.org/dev/theme/default/img/editing_tool_bar.png");
+            background-repeat: no-repeat;
+            background-position: -103px -23px; 
+        }
+        .olControlNavigationItemInactive { 
+            background-image: url("http://openlayers.org/dev/theme/default/img/editing_tool_bar.png");
+            background-repeat: no-repeat;
+            background-position: -103px -0px; 
+        }
+        .olControlDrawFeaturePolygonItemInactive { 
+            background-image: url("http://openlayers.org/dev/theme/default/img/editing_tool_bar.png");
+            background-repeat: no-repeat;
+            background-position: -26px 0px; 
+        }
+        .olControlDrawFeaturePolygonItemActive { 
+            background-image: url("http://openlayers.org/dev/theme/default/img/editing_tool_bar.png");
+            background-repeat: no-repeat;
+            background-position: -26px -23px ;                                                                   
+        }
+        .olControlModifyFeatureItemActive { 
+            background-image: url(http://openlayers.org/dev/theme/default/img/move_feature_on.png);
+            background-repeat: no-repeat;
+            background-position: 0px 1px;
+        }
+        .olControlModifyFeatureItemInactive { 
+            background-image: url(http://openlayers.org/dev/theme/default/img/move_feature_off.png);
+            background-repeat: no-repeat;
+            background-position: 0px 1px;
+        }
+        .olControlDeleteFeatureItemActive { 
+            background-image: url(http://openlayers.org/dev/theme/default/img/remove_point_on.png);
+            background-repeat: no-repeat;
+            background-position: 0px 1px;
+        }
+        .olControlDeleteFeatureItemInactive { 
+            background-image: url(http://openlayers.org/dev/theme/default/img/remove_point_off.png);
+            background-repeat: no-repeat;
+            background-position: 0px 1px;
+        }
+    </style> 
 
     <!-- GeoExt -->
     <script type="text/javascript" src="./scripts/GeoExt-0.6.js"></script>
     <script type="text/javascript">
       OpenLayers.ProxyHost = "/cgi-bin/proxy.cgi?url=";
+
+      var base, geoserverWMS, geoserver, shared;
+
+var DeleteFeature = OpenLayers.Class(OpenLayers.Control, {
+    initialize: function(layer, options) {
+        OpenLayers.Control.prototype.initialize.apply(this, [options]);
+        this.layer = layer;
+        this.handler = new OpenLayers.Handler.Feature(
+            this, layer, {click: this.clickFeature}
+        );
+    },
+    clickFeature: function(feature) {
+        // if feature doesn't have a fid, destroy it
+        if(feature.fid == undefined) {
+            this.layer.destroyFeatures([feature]);
+        } else {
+            feature.state = OpenLayers.State.DELETE;
+            this.layer.events.triggerEvent("afterfeaturemodified", 
+                                           {feature: feature});
+            feature.renderIntent = "select";
+            this.layer.drawFeature(feature);
+        }
+    },
+    setMap: function(map) {
+        this.handler.setMap(map);
+        OpenLayers.Control.prototype.setMap.apply(this, arguments);
+    },
+    CLASS_NAME: "OpenLayers.Control.DeleteFeature"
+});
+
       Ext.onReady(function() {
 
         //Setup OpenLayers Map
@@ -29,32 +113,52 @@
             OpenLayers.Feature.Vector.style["default"]
           ));
 
-        //Setup OpenLayers Layer
-        var base = new OpenLayers.Layer.WMS(
+        //Setup OpenLayers Layers
+        base = new OpenLayers.Layer.WMS(
           "MetaCarta WMS",
           "http://labs.metacarta.com/wms-c/Basic.py",
           { layers: "basic" }
           );
 
-        var geoserverWMS = new OpenLayers.Layer.WMS(
+        geoserverWMS = new OpenLayers.Layer.WMS(
           "Geoserver WMS: Itasca Lakes",
           "http://tub.ath.cx:8080/geoserver/wms",
           {layers: "prco303:itasca", transparent: "true"},
           {isBaseLayer: false, projection: "EPSG:26915"}
           );
 
-        var geoserver = new OpenLayers.Layer.Vector( "GeoServer WFS: Itasca Lakes", {
+        geoserver = new OpenLayers.Layer.Vector( "GeoServer WFS: Itasca Lakes", {
           strategies: [new OpenLayers.Strategy.BBOX()],
           styleMap: styleMap,
           projection: new OpenLayers.Projection("EPSG:26915"),
           protocol: new OpenLayers.Protocol.WFS({
-              version: "1.1.0",
-              url: "http://tub.ath.cx:8080/geoserver/wfs",
-              featureType: "prco303:itasca",
-              //featureNS: "http://tub.ath.cx/geoserver/wfs",
-              geometryName: "the_geom",
-              srs: "EPSG:26915"
-              })
+            version: "1.1.0",
+            url: "http://tub.ath.cx:8080/geoserver/wfs",
+            featureType: "prco303:itasca",
+            //featureNS: "http://tub.ath.cx/geoserver/wfs",
+            geometryName: "the_geom",
+            srs: "EPSG:26915"
+            })
+          });
+
+        var saveStrategy = new OpenLayers.Strategy.Save({ 
+        callback: function() { 
+            alert('feature saved'); 
+        } 
+    }); 
+
+        shared = new OpenLayers.Layer.Vector("Editable Features", {
+          strategies: [new OpenLayers.Strategy.BBOX(), saveStrategy],
+          projection: new OpenLayers.Projection("EPSG:26915"),
+          protocol: new OpenLayers.Protocol.WFS({
+            version: "1.1.0",
+            srsName: "EPSG:26915",
+            url: "http://tub.ath.cx:8080/geoserver/wfs",
+            featureNS :  "http://tub.ath.cx",
+            featureType: "shared",
+            geometryName: "the_geom",
+            schema: "http://192.168.72.7:8080/geoserver/wfs/DescribeFeatureType?version=1.1.0&typeName=prco303:shared"
+            })
           });
 
         map.addLayer( base );
@@ -64,8 +168,47 @@
           region: "center",
           map: map,
           extent: new OpenLayers.Bounds(-94.428, 47.018, -93.06, 47.889),
-          layers: [ geoserver, geoserverWMS ]
+          layers: [ geoserver, geoserverWMS, shared ]
         });
+
+    var panel = new OpenLayers.Control.Panel(
+        {'displayClass': 'customEditingToolbar'}
+    );
+    
+    var navigate = new OpenLayers.Control.Navigation({
+        title: "Pan Map"
+    });
+    
+    var draw = new OpenLayers.Control.DrawFeature(
+        shared, OpenLayers.Handler.Polygon,
+        {
+            title: "Draw Feature",
+            displayClass: "olControlDrawFeaturePolygon",
+            handlerOptions: {multi: true}
+        }
+    );
+    
+    var edit = new OpenLayers.Control.ModifyFeature(shared, {
+        title: "Modify Feature",
+        displayClass: "olControlModifyFeature"
+    });
+
+    var del = new DeleteFeature(shared, {title: "Delete Feature"});
+   
+    var save = new OpenLayers.Control.Button({
+        title: "Save Changes",
+        trigger: function() {
+            if(edit.feature) {
+                edit.selectControl.unselectAll();
+            }
+            saveStrategy.save();
+        },
+        displayClass: "olControlSaveFeatures"
+    });
+
+    panel.addControls([navigate, save, del, edit, draw]);
+    panel.defaultControl = navigate;
+    map.addControl(panel);
 
         new Ext.Viewport({
             title: "Collaborative Geospatial Environment",
