@@ -149,15 +149,15 @@ var DeleteFeature = OpenLayers.Class(OpenLayers.Control, {
 
         shared = new OpenLayers.Layer.Vector("Editable Features", {
           strategies: [new OpenLayers.Strategy.BBOX(), saveStrategy],
-//          projection: new OpenLayers.Projection("EPSG:26915"),
+          projection: new OpenLayers.Projection("EPSG:26915"),
           protocol: new OpenLayers.Protocol.WFS({
             version: "1.1.0",
-//            srsName: "EPSG:26915",
+            srsName: "EPSG:26915",
             url: "http://tub.ath.cx:8080/geoserver/wfs",
-//            featureNS :  "http://tub.ath.cx",
+            featureNS :  "http://tub.ath.cx",
             featureType: "prco303:shared",
             geometryName: "the_geom"
-//            schema: "http://192.168.72.7:8080/geoserver/wfs/DescribeFeatureType?version=1.1.0&typeName=prco303:shared"
+            schema: "http://192.168.72.7:8080/geoserver/wfs/DescribeFeatureType?version=1.1.0&typeName=prco303:shared"
             })
           });
 
