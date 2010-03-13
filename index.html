@@ -12,7 +12,7 @@
 <style> 
         .customEditingToolbar div {
             float: left;
-            margin: 5px;
+            margin: 4px;
             width: 24px;
             height: 24px;
         }
@@ -25,6 +25,26 @@
             background-image: url("http://openlayers.org/dev/theme/default/img/editing_tool_bar.png");
             background-repeat: no-repeat;
             background-position: -103px -0px; 
+        }
+        .olControlDrawFeaturePointItemActive { 
+            background-image: url("http://openlayers.org/dev/theme/default/img/editing_tool_bar.png");
+            background-repeat: no-repeat;
+            background-position: -77px -23px; 
+        }
+        .olControlDrawFeaturePointItemInactive { 
+            background-image: url("http://openlayers.org/dev/theme/default/img/editing_tool_bar.png");
+            background-repeat: no-repeat;
+            background-position: -77px -0px; 
+        }
+        .olControlDrawFeaturePathItemInactive { 
+            background-image: url("http://openlayers.org/dev/theme/default/img/editing_tool_bar.png");
+            background-repeat: no-repeat;
+            background-position: -51px 0px; 
+        }
+        .olControlDrawFeaturePathItemActive { 
+            background-image: url("http://openlayers.org/dev/theme/default/img/editing_tool_bar.png");
+            background-repeat: no-repeat;
+            background-position: -51px -23px; 
         }
         .olControlDrawFeaturePolygonItemInactive { 
             background-image: url("http://openlayers.org/dev/theme/default/img/editing_tool_bar.png");
@@ -257,10 +277,28 @@ var DeleteFeature = OpenLayers.Class(OpenLayers.Control, {
         title: "Pan Map"
     });
     
-    var draw = new OpenLayers.Control.DrawFeature(
+    var drawPoint = new OpenLayers.Control.DrawFeature(
+        shared, OpenLayers.Handler.Point,
+        {
+            title: "Draw Point",
+            displayClass: "olControlDrawFeaturePoint",
+            handlerOptions: {multi: true}
+        }
+    );
+
+    var drawPath = new OpenLayers.Control.DrawFeature(
+        shared, OpenLayers.Handler.Path,
+        {
+            title: "Draw Path",
+            displayClass: "olControlDrawFeaturePath",
+            handlerOptions: {multi: true}
+        }
+    );
+
+    var drawPolygon = new OpenLayers.Control.DrawFeature(
         shared, OpenLayers.Handler.Polygon,
         {
-            title: "Draw Feature",
+            title: "Draw Polygon",
             displayClass: "olControlDrawFeaturePolygon",
             handlerOptions: {multi: true}
         }
@@ -284,7 +322,7 @@ var DeleteFeature = OpenLayers.Class(OpenLayers.Control, {
         displayClass: "olControlSaveFeatures"
     });
 
-    panel.addControls([navigate, save, del, edit, draw]);
+    panel.addControls([navigate, save, del, edit, drawPoint, drawPath, drawPolygon ]);
     panel.defaultControl = navigate;
     map.addControl(panel);
 
