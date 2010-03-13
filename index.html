@@ -10,14 +10,8 @@
     <!-- OpenLayers -->
     <script type="text/javascript" src="http://www.openlayers.org/api/OpenLayers.js"></script>
 <style> 
-        .customEditingToolbar {
-            float: right;
-            right: 0px;
-            height: 30px; 
-            width: 200px;
-        }
         .customEditingToolbar div {
-            float: right;
+            float: left;
             margin: 5px;
             width: 24px;
             height: 24px;
@@ -171,45 +165,6 @@ var DeleteFeature = OpenLayers.Class(OpenLayers.Control, {
           layers: [ geoserver, geoserverWMS, shared ]
         });
 
-    var panel = new OpenLayers.Control.Panel(
-        {'displayClass': 'customEditingToolbar'}
-    );
-    
-    var navigate = new OpenLayers.Control.Navigation({
-        title: "Pan Map"
-    });
-    
-    var draw = new OpenLayers.Control.DrawFeature(
-        shared, OpenLayers.Handler.Polygon,
-        {
-            title: "Draw Feature",
-            displayClass: "olControlDrawFeaturePolygon",
-            handlerOptions: {multi: true}
-        }
-    );
-    
-    var edit = new OpenLayers.Control.ModifyFeature(shared, {
-        title: "Modify Feature",
-        displayClass: "olControlModifyFeature"
-    });
-
-    var del = new DeleteFeature(shared, {title: "Delete Feature"});
-   
-    var save = new OpenLayers.Control.Button({
-        title: "Save Changes",
-        trigger: function() {
-            if(edit.feature) {
-                edit.selectControl.unselectAll();
-            }
-            saveStrategy.save();
-        },
-        displayClass: "olControlSaveFeatures"
-    });
-
-    panel.addControls([navigate, save, del, edit, draw]);
-    panel.defaultControl = navigate;
-    map.addControl(panel);
-
         new Ext.Viewport({
             title: "Collaborative Geospatial Environment",
             renderTo: "map",
@@ -277,6 +232,7 @@ var DeleteFeature = OpenLayers.Class(OpenLayers.Control, {
 			      title : "Layers"
 			  },            {
 			      xtype : "panel",
+			      html : "<div id=\"mapEdit\" class=\"customEditingToolbar\"></div>",
 			      autoHeight : true,
 			      title : "Editing"
 			  }]
@@ -290,6 +246,48 @@ var DeleteFeature = OpenLayers.Class(OpenLayers.Control, {
 		}
 		}]
         }).show();
+
+    var container = document.getElementById("mapEdit");
+
+    var panel = new OpenLayers.Control.Panel({
+        div: container
+    });
+    
+    var navigate = new OpenLayers.Control.Navigation({
+        title: "Pan Map"
+    });
+    
+    var draw = new OpenLayers.Control.DrawFeature(
+        shared, OpenLayers.Handler.Polygon,
+        {
+            title: "Draw Feature",
+            displayClass: "olControlDrawFeaturePolygon",
+            handlerOptions: {multi: true}
+        }
+    );
+    
+    var edit = new OpenLayers.Control.ModifyFeature(shared, {
+        title: "Modify Feature",
+        displayClass: "olControlModifyFeature"
+    });
+
+    var del = new DeleteFeature(shared, {title: "Delete Feature"});
+   
+    var save = new OpenLayers.Control.Button({
+        title: "Save Changes",
+        trigger: function() {
+            if(edit.feature) {
+                edit.selectControl.unselectAll();
+            }
+            saveStrategy.save();
+        },
+        displayClass: "olControlSaveFeatures"
+    });
+
+    panel.addControls([navigate, save, del, edit, draw]);
+    panel.defaultControl = navigate;
+    map.addControl(panel);
+
       });
     </script>
   </head>
