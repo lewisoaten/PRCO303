@@ -168,10 +168,10 @@ var DeleteFeature = OpenLayers.Class(OpenLayers.Control, {
             version: "1.1.0",
             srsName: "EPSG:26915",
             url: "http://tub.ath.cx:8080/geoserver/wfs",
-            featureNS :  "http://tub.ath.cx",
-            featureType: "shared",
-            geometryName: "the_geom",
-            schema: "http://192.168.72.7:8080/geoserver/wfs/DescribeFeatureType?version=1.1.0&typeName=prco303:shared"
+            featureNS :  "http://www.openplans.org/topp",
+            schema: "http://192.168.72.7:8080/geoserver/wfs/DescribeFeatureType?version=1.1.0&typeName=prco303:shared",
+            featureType: "prco303:shared",
+            geometryName: "the_geom"
             })
           });
 
@@ -196,6 +196,7 @@ var DeleteFeature = OpenLayers.Class(OpenLayers.Control, {
 		      title : "Feature Information",
 		      split : false,
 		      collapsible : true,
+		      collapsed: true,
 		      height : 200
 		  },    {
 		      region : "east",
